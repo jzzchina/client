@@ -49,11 +49,6 @@ export default class LoginComponent extends React.Component<Props, State> {
     }
 
     render() {
-        const {updateSuccess} = this.props;
-        if(updateSuccess){
-            return <Redirect to = '/employees' />;
-        }
-
         const {AccountId,Password, Name, Role } = this.state;
 
         return(

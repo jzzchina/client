@@ -3,6 +3,7 @@ import axiosUtils from '../../utils/axiosUtils'
 import { Get_EMPLOYEE_DATA_SUCCESS, UPDATE_EMPLOYEE_SUCCESS } from './ActionTypes'
 import EmployeeTestData from '../testdata/EmployeeTestData'
 import {EmployeeModel} from '../models/EmployeeModel'
+import history from '../../utils/history';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/reducers/RootReducer';
 
@@ -31,23 +32,9 @@ export function getEmployeesData(){
 
 export function addEmployee(employee: EmployeeModel){
     return (dispatch)=>{
-
-        // const test = employee;
-
         axiosUtils.post("/employees/add",employee)
             .then((data)=>{
-                dispatch({
-                    type: UPDATE_EMPLOYEE_SUCCESS,
-                    // employees: data
-                });
-
-                // getEmployeesData()
+                history.push("/employees");
             })
     };
 }
-
-
-// export default {
-//     getEmployeesData,
-//     addEmployee,
-// }

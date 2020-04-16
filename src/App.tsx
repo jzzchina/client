@@ -5,12 +5,11 @@ import { createBrowserHistory } from "history";
 import RouteWrapper from "./redux/RouteWrapper";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
+import history from './utils/history';
 import Layout from './containers/Layout';
 import Login from './containers/LoginContainer';
 import Employees from './containers/admin/EmployeesContainer';
 import EmployeesEdit from './containers/admin/EmployeesEditContainer';
-
-const history = createBrowserHistory();
 
 export default class App extends React.Component {
 
