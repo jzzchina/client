@@ -1,17 +1,14 @@
 import { createReducer } from '../../../utils/reduxUtils';
-import {UPDATE_EMPLOYEE_SUCCESS} from '../../actions/ActionTypes'
+import {UPDATE_EMPLOYEE_SUCCESS, SET_EDIT__MODE} from '../../actions/ActionTypes'
 import {EmployeeEditModel} from '../../models/EmployeeEditModel'
 
 export interface EmployeeEditState {
-    employeeEdit: EmployeeEditModel,
+    editMode: string,
     updateSuccess: boolean,
 };
 
 const initialState: EmployeeEditState = {
-    employeeEdit: {
-        Mode: '',
-        Employee: null
-    },
+    editMode: "",
     updateSuccess: false,
 };
 
@@ -22,6 +19,14 @@ function updateEmployeesSuccess(state, actions): EmployeeEditState {
     };
 }
 
+function setEditMode(state, actions): EmployeeEditState {
+    return {
+        ...state,
+        editMode: actions.editMode
+    };
+}
+
 export default createReducer(initialState, {
-	[UPDATE_EMPLOYEE_SUCCESS]: updateEmployeesSuccess,
+    [UPDATE_EMPLOYEE_SUCCESS]: updateEmployeesSuccess,
+    [SET_EDIT__MODE]: setEditMode,
 });

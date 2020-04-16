@@ -22,7 +22,8 @@ export default class App extends React.Component {
                     <Route path="/login" component={Login} />
                     <RouteWrapper exact path="/employees" component={Employees} layout={Layout} />
                     <RouteWrapper exact path="/employees/add" component={EmployeesEdit} layout={Layout} />
-                    <RouteWrapper exact path="/employees/edit" component={Employees} layout={Layout} />
+                    <RouteWrapper exact path="/employees/edit/:id" component={EmployeesEdit} layout={Layout} />
+                    <RouteWrapper exact path="/employees/delete/:id" component={EmployeesEdit} layout={Layout} />
                     <RouteWrapper exact path="/view" component={Employees} layout={Layout} />
                     </Switch>
                 </Router>

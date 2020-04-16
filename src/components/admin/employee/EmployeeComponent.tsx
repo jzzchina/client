@@ -1,10 +1,13 @@
 import React from 'react';
 import {EmployeeModel} from '../../../redux/models/EmployeeModel'
 import { Link, NavLink } from 'react-router-dom';
+import {EditType} from '../../../constants/EditTypes'
+import history from '../../../utils/history'
 
 interface Props {
     employees: EmployeeModel[];
     getEmployeesData(): void;
+    setEditMode(mode: EditType): void;
 }
 
 export default class LoginComponent extends React.Component<Props, {}> {
@@ -14,9 +17,18 @@ export default class LoginComponent extends React.Component<Props, {}> {
         getEmployeesData();
     }
 
-    // onAddClick(){
+    updateEmployees(mode: EditType, id?: number){
+        var {setEditMode} = this.props;
 
-    // }
+        setEditMode(mode);
+        if(mode === EditType.New){
+            history.push("/employees/add");
+        }else if(mode === EditType.Edit){
+            history.push("/employees/edit/" + id);
+        }else if(mode === EditType.Delete){
+            history.push("/employees/delete/" + id);
+        }
+    }
 
     renderTable(){
         const {employees} = this.props;
@@ -30,7 +42,10 @@ export default class LoginComponent extends React.Component<Props, {}> {
                 <td>{item.AccountId}</td>
                 <td>{item.Name}</td>
                 <td>{item.Role}</td>
-                <td><button type="button" className="btn btn-link">Edit</button>|<button type="button" className="btn btn-link">Delete</button></td>
+                <td>
+                    <button type="button" className="btn btn-link" onClick={(e) => this.updateEmployees(EditType.Edit, item.Uid)}>Edit</button> |
+                    <button type="button" className="btn btn-link" onClick={(e) => this.updateEmployees(EditType.Delete, item.Uid)}>Delete</button>
+                </td>
               </tr>
             ]);
           });
@@ -39,7 +54,7 @@ export default class LoginComponent extends React.Component<Props, {}> {
     render() {
         return(
             <div>
-               <p><NavLink to="/employees/add"> Create new employee </NavLink></p>
+               <p><button type="button" className="btn btn-link" onClick={(e) => this.updateEmployees(EditType.New)}>Create new employee</button></p>
                <table className="table table-hover">
                     <thead>
                     <tr>

@@ -1,11 +1,12 @@
 
 import axiosUtils from '../../utils/axiosUtils'
-import { Get_EMPLOYEE_DATA_SUCCESS, UPDATE_EMPLOYEE_SUCCESS } from './ActionTypes'
+import { Get_EMPLOYEE_DATA_SUCCESS, SET_EDIT__MODE } from './ActionTypes'
 import EmployeeTestData from '../testdata/EmployeeTestData'
 import {EmployeeModel} from '../models/EmployeeModel'
 import history from '../../utils/history';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/reducers/RootReducer';
+import {EditType} from '../../constants/EditTypes'
 
 export function getEmployeesData(){
     return (dispatch)=>{
@@ -30,6 +31,17 @@ export function getEmployeesData(){
     };
 }
 
+
+export function setEditMode(mode: EditType){
+    return (dispatch)=>{
+        dispatch({
+            type:SET_EDIT__MODE,
+            editMode: mode
+        });
+    };
+
+}
+
 export function addEmployee(employee: EmployeeModel){
     return (dispatch)=>{
         axiosUtils.post("/employees/add",employee)
@@ -38,3 +50,22 @@ export function addEmployee(employee: EmployeeModel){
             })
     };
 }
+
+export function editEmployee(employee: EmployeeModel){
+    return (dispatch)=>{
+        axiosUtils.post("/employees/edit",employee)
+            .then((data)=>{
+                history.push("/employees");
+            })
+    };
+}
+
+export function deleteEmployee(employee: EmployeeModel){
+    return (dispatch)=>{
+        axiosUtils.post("/employees/delete",employee)
+            .then((data)=>{
+                history.push("/employees");
+            })
+    };
+}
+

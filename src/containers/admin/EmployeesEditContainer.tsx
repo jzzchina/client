@@ -7,9 +7,12 @@ import Employee from '../../components/admin/employee/EmployeeComponent';
 import { RootState } from '../../redux/reducers/RootReducer';
 
 function mapStateToProps(state: RootState) {
-    const {updateSuccess} = state.employeeEdit;
+    const {updateSuccess, editMode} = state.employeeEdit;
+    const {employees} = state.employees;
     return {
+        editMode: editMode,
         updateSuccess: updateSuccess,
+        employees: employees
     };
 }
 
