@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-var instance = axios.create({
-  baseURL: 'http://rap2api.taobao.org/app/mock/161631/api',
-  timeout: 3000,
+// const baseURL = 'http://localhost:31894';
+const instance = axios.create({
+  baseURL: 'http://localhost:31894/api',
+  // timeout: 3000,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json',
@@ -10,9 +11,9 @@ var instance = axios.create({
     }
 });
 
-//Show Loading 
+//Show Loading
 instance.interceptors.request.use((config)=>{
- 
+
 //   store.dispatch(actions.showLoading(true))
   return config;
 })
@@ -32,7 +33,7 @@ instance.interceptors.response.use(
 /**
  * get request
  */
-var get = function(url, params) {
+const get = function(url, params) {
   return new Promise((resolve, reject) => {
     instance
       .get(url, params)
@@ -47,7 +48,7 @@ var get = function(url, params) {
 /**
  * post request
  */
-var post = function(url, data) {
+const post = function(url, data) {
   return new Promise((resolve, reject) => {
     instance
       .post(url, data)

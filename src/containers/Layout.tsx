@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Layout({ children }) {
     return (
@@ -15,16 +15,16 @@ export default function Layout({ children }) {
                 </div>
             </nav>
 
-            <div className="container">    
+            <div className="container">
                 <div className="row content">
                     <div className="col-sm-2 sidenav text-left">
-                        <p><Link to="/employees">Employees</Link></p>
-                        <p><Link to="/view">Performance review</Link></p>
-                    </div>                        
-                    <div className="col-sm-8 text-left"> 
+                        <p><NavLink to="/employees">Employees</NavLink></p>
+                        <p><NavLink to="/view">Performance review</NavLink></p>
+                    </div>
+                    <div className="col-sm-8 text-left">
                         {children}
                     </div>
-                </div>            
+                </div>
             </div>
         </div>
     )

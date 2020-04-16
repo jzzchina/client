@@ -13,17 +13,19 @@ import EmployeesEdit from './containers/admin/EmployeesEditContainer';
 const history = createBrowserHistory();
 
 export default class App extends React.Component {
-  
+
     render() {
         return (
             <div>
-                <Router history={history}>   
-                    <Route exact path="/" component={Login} />                      
+                <Router history={history}>
+                    <Switch>
+                    <Route exact path="/" component={Login} />
                     <Route path="/login" component={Login} />
-                    <RouteWrapper path="/employees" component={Employees} layout={Layout} />
-                    <RouteWrapper path="/employees/add" component={EmployeesEdit} layout={Layout} />
-                    <RouteWrapper path="/employees/edit" component={Employees} layout={Layout} />
-                    <RouteWrapper path="/view" component={Employees} layout={Layout} />                    
+                    <RouteWrapper exact path="/employees" component={Employees} layout={Layout} />
+                    <RouteWrapper exact path="/employees/add" component={EmployeesEdit} layout={Layout} />
+                    <RouteWrapper exact path="/employees/edit" component={Employees} layout={Layout} />
+                    <RouteWrapper exact path="/view" component={Employees} layout={Layout} />
+                    </Switch>
                 </Router>
             </div>
         );

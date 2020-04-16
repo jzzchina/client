@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import * as EmployeesActionCreators from '../../redux/actions/EmployeesActionCreators';
 import EmployeeEdit from '../../components/admin/employee/EmployeeEditComponent';
+import Employee from '../../components/admin/employee/EmployeeComponent';
 import { RootState } from '../../redux/reducers/RootReducer';
 
 function mapStateToProps(state: RootState) {
-    const {employeeEdit} = state;
+    const {updateSuccess} = state.employeeEdit;
     return {
-        employeeEdit: employeeEdit,
+        updateSuccess: updateSuccess,
     };
 }
 

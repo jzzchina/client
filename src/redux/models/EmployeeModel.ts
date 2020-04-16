@@ -1,7 +1,8 @@
 
 export interface EmployeeModel {
     Uid: number;
-    // accountId: string;
+    AccountId: string;
+    Password: string;
     Name: string;
-    Address: string;
+    Role: string;
 };
