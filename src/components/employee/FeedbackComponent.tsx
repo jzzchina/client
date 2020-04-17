@@ -1,42 +1,21 @@
 import React from 'react';
 import {FeedbackModel} from '../../redux/models/FeedbackModel'
-import { Link, NavLink } from 'react-router-dom';
-// import {EditType} from '../../../constants/EditTypes'
-// import history from '../../../utils/history'
-import axiosUtils from '../../utils/axiosUtils'
+import history from '../../utils/history'
 
 interface Props {
     loginId: string;
     feedbacks: FeedbackModel[],
     getEmployeeFeedbackData(): void;
-    // setReviewEditMode(mode: EditType): void;
 }
 
-
-interface State {
-    _uid: number;
-    _name: string;
-    _rank: string;
-    _description: string;
-}
-
-export default class FeedbackComponent extends React.Component<Props, State> {
+export default class FeedbackComponent extends React.Component<Props, {}> {
     componentWillMount() {
         const { getEmployeeFeedbackData } = this.props;
         getEmployeeFeedbackData();
     }
 
-    updateEmployees(id?: number){
-        // var {setEditMode} = this.props;
-
-        // setEditMode(mode);
-        // if(mode === EditType.New){
-        //     history.push("/employees/add");
-        // }else if(mode === EditType.Edit){
-        //     history.push("/employees/edit/" + id);
-        // }else if(mode === EditType.Delete){
-        //     history.push("/employees/delete/" + id);
-        // }
+    updateFeedback(id?: number){
+        history.push("/employee-feedback/" + id);
     }
 
     updateReview(){
@@ -56,7 +35,7 @@ export default class FeedbackComponent extends React.Component<Props, State> {
                 <td>{item.Rank}</td>
                 <td>{item.Description}</td>
                 <td>
-                    <button type="button" className="btn btn-link" onClick={(e) => this.updateEmployees(item.Uid)}>Feedback</button>
+                    <button type="button" className="btn btn-link" onClick={(e) => this.updateFeedback(item.Uid)}>Feedback</button>
                 </td>
               </tr>
             ]);
@@ -66,7 +45,6 @@ export default class FeedbackComponent extends React.Component<Props, State> {
     render() {
         return(
             <div>
-               <p><button type="button" className="btn btn-link" onClick={(e) => this.updateReview()}>Create review</button></p>
                <table className="table table-hover">
                     <thead>
                     <tr>
