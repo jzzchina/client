@@ -1,5 +1,5 @@
 import { createReducer } from '../../../utils/reduxUtils';
-import {Get_EMPLOYEE_DATA_SUCCESS} from '../../actions/ActionTypes'
+import {GET_EMPLOYEE_DATA_SUCCESS} from '../../actions/ActionTypes'
 import {EmployeeModel} from '../../models/EmployeeModel'
 
 export interface EmployeesState {
@@ -18,5 +18,5 @@ function GetEmployeesDataSuccess(state, actions): EmployeesState {
 }
 
 export default createReducer(initialState, {
-	[Get_EMPLOYEE_DATA_SUCCESS]: GetEmployeesDataSuccess,
+	[GET_EMPLOYEE_DATA_SUCCESS]: GetEmployeesDataSuccess,
 });

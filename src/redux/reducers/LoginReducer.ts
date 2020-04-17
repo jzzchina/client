@@ -23,19 +23,21 @@ const initialState: LoginState = {
 	error: ''
 };
 
-function loginAdminSuccess(state): LoginState {
+function loginAdminSuccess(state, actions): LoginState {
     return {
         ...state,
 		isLogin: true,
-		role: AccountRoleType.Admin
+        role: AccountRoleType.Admin,
+        accountId: actions.loginId
     };
 }
 
-function loginEmployeeSuccess(state): LoginState {
+function loginEmployeeSuccess(state, actions): LoginState {
     return {
         ...state,
 		isLogin: true,
-		role: AccountRoleType.Employee
+        role: AccountRoleType.Employee,
+        accountId: actions.loginId
     };
 }
 

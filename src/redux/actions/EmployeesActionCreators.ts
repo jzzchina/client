@@ -1,6 +1,6 @@
 
 import axiosUtils from '../../utils/axiosUtils'
-import { Get_EMPLOYEE_DATA_SUCCESS, SET_EDIT__MODE } from './ActionTypes'
+import { GET_EMPLOYEE_DATA_SUCCESS, SET_EDIT__MODE } from './ActionTypes'
 import EmployeeTestData from '../testdata/EmployeeTestData'
 import {EmployeeModel} from '../models/EmployeeModel'
 import history from '../../utils/history';
@@ -18,15 +18,15 @@ export function getEmployeesData(){
                 const data  = res.data;
 
                 dispatch({
-                    type: Get_EMPLOYEE_DATA_SUCCESS,
+                    type: GET_EMPLOYEE_DATA_SUCCESS,
                     employees: data
                 });
             })
             .catch(err => {
-                dispatch({
-                    type:Get_EMPLOYEE_DATA_SUCCESS,
-                    employees: EmployeeTestData
-                });
+                // dispatch({
+                //     type:GET_EMPLOYEE_DATA_SUCCESS,
+                //     employees: EmployeeTestData
+                // });
             });
     };
 }

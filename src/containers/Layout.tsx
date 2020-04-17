@@ -19,7 +19,7 @@ export default function Layout({ children }) {
                 <div className="row content">
                     <div className="col-sm-2 sidenav text-left">
                         <p><NavLink to="/employees">Employees</NavLink></p>
-                        <p><NavLink to="/view">Performance review</NavLink></p>
+                        <p><NavLink to="/reviews">Performance review</NavLink></p>
                     </div>
                     <div className="col-sm-8 text-left">
                         {children}

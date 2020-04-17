@@ -6,19 +6,21 @@ import {AccountRoleType} from '../../constants/RoleTypes'
 export function Login(username: string, password: string){
     return (dispatch)=>{
 
-        //TODO 
+        //TODO
         if(username === 'admin' && password === 'admin'){
             dispatch({
                 type:LOGIN_ADMIN_SUCCESS,
                 isLogin: true,
-                role: AccountRoleType.Admin
+                role: AccountRoleType.Admin,
+                loginId: username
             });
         }
         if(username === 'employee' && password === 'employee'){
             dispatch({
                 type:LOGIN_EMPLOYEE_SUCCESS,
                 isLogin: true,
-                role: AccountRoleType.Admin
+                role: AccountRoleType.Admin,
+                loginId: username
             });
         }
 
@@ -28,7 +30,7 @@ export function Login(username: string, password: string){
         //     // dispatch({
         //     //     type:GET_MSG,
         //     //     msg:data.data.msg
-        //     // }) 
+        //     // })
         // })
     };
 }
