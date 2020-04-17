@@ -11,7 +11,8 @@ import Login from './containers/LoginContainer';
 import Employees from './containers/admin/EmployeesContainer';
 import EmployeesEdit from './containers/admin/EmployeesEditContainer';
 import Reviews from './containers/admin/ReviewsContainer';
-import ReviewEdit from './containers/admin//ReviewEditContainer';
+import ReviewEdit from './containers/admin/ReviewEditContainer';
+
 
 export default class App extends React.Component {
 
@@ -30,6 +31,7 @@ export default class App extends React.Component {
                     <RouteWrapper exact path="/reviews/add" component={ReviewEdit} layout={Layout} />
                     <RouteWrapper exact path="/reviews/edit/:id" component={ReviewEdit} layout={Layout} />
                     <RouteWrapper exact path="/reviews/delete/:id" component={ReviewEdit} layout={Layout} />
+                    <RouteWrapper exact path="/employee-feedback" component={Reviews} layout={Layout} />
                     </Switch>
                 </Router>
             </div>

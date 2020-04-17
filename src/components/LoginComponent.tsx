@@ -24,7 +24,7 @@ export default class LoginComponent extends React.Component<Props, State> {
         };
     }
 
-    onLoginClick() {        
+    onLoginClick() {
         const { Login } = this.props;
         const { username, password } = this.state;
         Login(username, password);
@@ -39,13 +39,13 @@ export default class LoginComponent extends React.Component<Props, State> {
                 <form name="form">
                     <div className='form-group'>
                         <label htmlFor="username">Username </label>
-                        <input type="text" id="username" className="form-control" value={username} 
-                            onChange={e => this.setState({username: e.currentTarget.value}) }/> 
+                        <input type="text" id="username" className="form-control" value={username}
+                            onChange={e => this.setState({username: e.currentTarget.value}) }/>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" value = {password} 
-                           onChange={e => this.setState({password: e.currentTarget.value}) }/> 
+                        <input type="password" className="form-control" value = {password}
+                           onChange={e => this.setState({password: e.currentTarget.value}) }/>
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary" onClick={(e) => this.onLoginClick()}>Login</button>
@@ -53,22 +53,22 @@ export default class LoginComponent extends React.Component<Props, State> {
                 </form>
             </div>
 
-            
+
         );
     }
 
-    render() {        
+    render() {
         const { isLogin, role } = this.props;
         if (isLogin) {
 			if (role === AccountRoleType.Admin) {
 				return <Redirect to = 'employees' />;
-            } 
+            }
             if (role === AccountRoleType.Employee){
-				return <Redirect to="/employee-view" />
+				return <Redirect to="/employee-feedback" />
             }
         }
-        
+
         return this.renderLoginFrom();
-        
+
     }
 }

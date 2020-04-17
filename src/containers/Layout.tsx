@@ -10,7 +10,7 @@ export default function Layout({ children }) {
                         <a className="navbar-brand" href="#">FullStackEngineerChallenge </a>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
-                        <li><a href="#"><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <li><NavLink to="/login"><span className="glyphicon glyphicon-log-out"></span> Logout</NavLink></li>
                     </ul>
                 </div>
             </nav>
