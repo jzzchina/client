@@ -1,6 +1,6 @@
 
 import axiosUtils from '../../utils/axiosUtils'
-import { GET_EMPLOYEE_DATA_SUCCESS, SET_EDIT__MODE } from './ActionTypes'
+import { GET_EMPLOYEE_DATA_SUCCESS, SET_EDIT_MODE } from './ActionTypes'
 import EmployeeTestData from '../testdata/EmployeeTestData'
 import {EmployeeModel} from '../models/EmployeeModel'
 import history from '../../utils/history';
@@ -35,7 +35,7 @@ export function getEmployeesData(){
 export function setEditMode(mode: EditType){
     return (dispatch)=>{
         dispatch({
-            type:SET_EDIT__MODE,
+            type:SET_EDIT_MODE,
             editMode: mode
         });
     };

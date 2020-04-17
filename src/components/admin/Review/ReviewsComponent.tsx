@@ -8,7 +8,7 @@ interface Props {
     loginId: string;
     reviews: ReviewModel[],
     getReviewsData(): void;
-    // setEditMode(mode: EditType): void;
+    setReviewEditMode(mode: EditType): void;
 }
 
 export default class ReviewsComponent extends React.Component<Props, {}> {
@@ -19,16 +19,16 @@ export default class ReviewsComponent extends React.Component<Props, {}> {
     }
 
     updateReview(mode: EditType, id?: number){
-        // var {setEditMode} = this.props;
+        var {setReviewEditMode} = this.props;
 
-        // setEditMode(mode);
-        // if(mode === EditType.New){
-        //     history.push("/employees/add");
-        // }else if(mode === EditType.Edit){
-        //     history.push("/employees/edit/" + id);
-        // }else if(mode === EditType.Delete){
-        //     history.push("/employees/delete/" + id);
-        // }
+        setReviewEditMode(mode);
+        if(mode === EditType.New){
+            history.push("/reviews/add");
+        }else if(mode === EditType.Edit){
+            history.push("/reviews/edit/" + id);
+        }else if(mode === EditType.Delete){
+            history.push("/reviews/delete/" + id);
+        }
     }
 
     renderTable(){
@@ -40,11 +40,9 @@ export default class ReviewsComponent extends React.Component<Props, {}> {
         return reviews.map((item) => {
             return ([
               <tr key={'Row_' + item.Uid}>
-                {/* <td>{item.AccountId}</td> */}
                 <td>{item.Name}</td>
                 <td>{item.Rank}</td>
                 <td>{item.Description}</td>
-                {/* <td>{item.Role}</td> */}
                 <td>
                     <button type="button" className="btn btn-link" onClick={(e) => this.updateReview(EditType.Edit, item.Uid)}>Edit</button> |
                     <button type="button" className="btn btn-link" onClick={(e) => this.updateReview(EditType.Delete, item.Uid)}>Delete</button>
@@ -57,7 +55,6 @@ export default class ReviewsComponent extends React.Component<Props, {}> {
     render() {
         return(
             <div>
-                {/* <span>Reviews</span> */}
                <p><button type="button" className="btn btn-link" onClick={(e) => this.updateReview(EditType.New)}>Create review</button></p>
                <table className="table table-hover">
                     <thead>

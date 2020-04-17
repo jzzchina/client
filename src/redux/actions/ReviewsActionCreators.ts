@@ -1,8 +1,8 @@
 
 import axiosUtils from '../../utils/axiosUtils'
-import { GET_REVIEWS_DATA_SUCCESS, SET_EDIT__MODE } from './ActionTypes'
+import { GET_REVIEWS_DATA_SUCCESS, SET_REVIEW_MODE } from './ActionTypes'
 // import EmployeeTestData from '../testdata/EmployeeTestData'
-import {EmployeeModel} from '../models/EmployeeModel'
+import {ReviewModel} from '../models/ReviewModel'
 import history from '../../utils/history';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/reducers/RootReducer';
@@ -10,7 +10,6 @@ import {EditType} from '../../constants/EditTypes'
 
 export function getReviewsData(){
     return (dispatch, getState: () => RootState)=>{
-        // const test = EmployeeTestData();
         const state = getState();
         const loginId = state.login.accountId;
 
@@ -34,40 +33,40 @@ export function getReviewsData(){
 }
 
 
-// export function setEditMode(mode: EditType){
-//     return (dispatch)=>{
-//         dispatch({
-//             type:SET_EDIT__MODE,
-//             editMode: mode
-//         });
-//     };
+export function setReviewEditMode(mode: EditType){
+    return (dispatch)=>{
+        dispatch({
+            type:SET_REVIEW_MODE,
+            editMode: mode
+        });
+    };
 
-// }
+}
 
-// export function addEmployee(employee: EmployeeModel){
-//     return (dispatch)=>{
-//         axiosUtils.post("/employees/add",employee)
-//             .then((data)=>{
-//                 history.push("/employees");
-//             })
-//     };
-// }
+export function addReview(review: ReviewModel){
+    return (dispatch)=>{
+        axiosUtils.post("/reviews/add",review)
+            .then((data)=>{
+                history.push("/reviews");
+            })
+    };
+}
 
-// export function editEmployee(employee: EmployeeModel){
-//     return (dispatch)=>{
-//         axiosUtils.post("/employees/edit",employee)
-//             .then((data)=>{
-//                 history.push("/employees");
-//             })
-//     };
-// }
+export function editReview(review: ReviewModel){
+    return (dispatch)=>{
+        axiosUtils.post("/reviews/edit",review)
+            .then((data)=>{
+                history.push("/reviews");
+            })
+    };
+}
 
-// export function deleteEmployee(employee: EmployeeModel){
-//     return (dispatch)=>{
-//         axiosUtils.post("/employees/delete",employee)
-//             .then((data)=>{
-//                 history.push("/employees");
-//             })
-//     };
-// }
+export function deleteReview(review: ReviewModel){
+    return (dispatch)=>{
+        axiosUtils.post("/reviews/delete",review)
+            .then((data)=>{
+                history.push("/reviews");
+            })
+    };
+}
 

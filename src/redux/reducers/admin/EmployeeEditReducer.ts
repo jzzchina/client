@@ -1,5 +1,5 @@
 import { createReducer } from '../../../utils/reduxUtils';
-import {UPDATE_EMPLOYEE_SUCCESS, SET_EDIT__MODE} from '../../actions/ActionTypes'
+import {UPDATE_EMPLOYEE_SUCCESS, SET_EDIT_MODE} from '../../actions/ActionTypes'
 import {EmployeeEditModel} from '../../models/EmployeeEditModel'
 
 export interface EmployeeEditState {
@@ -28,5 +28,5 @@ function setEditMode(state, actions): EmployeeEditState {
 
 export default createReducer(initialState, {
     [UPDATE_EMPLOYEE_SUCCESS]: updateEmployeesSuccess,
-    [SET_EDIT__MODE]: setEditMode,
+    [SET_EDIT_MODE]: setEditMode,
 });
