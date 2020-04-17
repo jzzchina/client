@@ -1,7 +1,30 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+function getLeftSideNav({ children }){
+    const {path} = children.props.match;
+
+    if(path.indexOf("employee-feedback") >= 0){
+        return (
+            <div className="col-sm-2 sidenav text-left">
+                <p><NavLink to="/employee-feedback">Employees Feedback</NavLink></p>
+            </div>
+        );
+    }else{
+        return (
+            <div className="col-sm-2 sidenav text-left">
+                <p><NavLink to="/employees">Employees</NavLink></p>
+                <p><NavLink to="/reviews">Performance review</NavLink></p>
+            </div>
+        );
+    }
+}
+
+
 export default function Layout({ children }) {
+
+    const leftSideNav = getLeftSideNav({ children });
+
     return (
         <div>
             <nav className="navbar navbar-inverse">
@@ -17,10 +40,7 @@ export default function Layout({ children }) {
 
             <div className="container">
                 <div className="row content">
-                    <div className="col-sm-2 sidenav text-left">
-                        <p><NavLink to="/employees">Employees</NavLink></p>
-                        <p><NavLink to="/reviews">Performance review</NavLink></p>
-                    </div>
+                    {leftSideNav}
                     <div className="col-sm-8 text-left">
                         {children}
                     </div>

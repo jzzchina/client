@@ -34,23 +34,21 @@ export default class LoginComponent extends React.Component<Props, State> {
         const { username, password } = this.state;
 
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <div className="col-md-6 col-md-offset-3"  style={{marginTop:"40px"}}  >
                 <h2>Login</h2>
-                <form name="form">
-                    <div className='form-group'>
-                        <label htmlFor="username">Username </label>
-                        <input type="text" id="username" className="form-control" value={username}
-                            onChange={e => this.setState({username: e.currentTarget.value}) }/>
-                    </div>
-                    <div className='form-group'>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" value = {password}
-                           onChange={e => this.setState({password: e.currentTarget.value}) }/>
-                    </div>
-                    <div className="form-group">
-                        <button className="btn btn-primary" onClick={(e) => this.onLoginClick()}>Login</button>
-                    </div>
-                </form>
+                <div className='form-group'>
+                    <label htmlFor="username">Username </label>
+                    <input type="text" id="username" className="form-control" value={username}
+                        onChange={e => this.setState({username: e.currentTarget.value}) }/>
+                </div>
+                <div className='form-group'>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" className="form-control" value = {password}
+                        onChange={e => this.setState({password: e.currentTarget.value}) }/>
+                </div>
+                <div className="form-group">
+                    <button className="btn btn-primary" onClick={(e) => this.onLoginClick()}>Login</button>
+                </div>
             </div>
 
 
