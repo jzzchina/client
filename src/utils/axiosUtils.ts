@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-// const baseURL = 'http://localhost:31894';
 const instance = axios.create({
-  baseURL: 'http://localhost:31894/api',
+  baseURL: 'https://demo-sho.azurewebsites.net',
   // timeout: 3000,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
