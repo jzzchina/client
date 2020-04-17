@@ -112,51 +112,37 @@ export default class LoginComponent extends React.Component<Props, State> {
         return(
             <div>
                 <div className="col-md-6 col-md-offset-3">
-                <h2>{title}</h2>
-                {/* <form name="form"> */}
-                    <div className='form-group'>
-                        <label >ID </label>
-                        <input type="text" className="form-control" value={AccountId}
-                            onChange={e => this.setState({AccountId: e.currentTarget.value}) }/>
-                    </div>
-                    <div className='form-group'>
-                        <label>Password</label>
-                        <input type="password" className="form-control" value={Password}
-                           onChange={e => this.setState({Password: e.currentTarget.value}) }/>
-                    </div>
-                    <div className='form-group'>
-                        <label>Name</label>
-                        <input type="text" className="form-control" value={Name}
-                           onChange={e => this.setState({Name: e.currentTarget.value}) }/>
-                    </div>
-                    <div className='form-group'>
-                        <label>Role</label>
-                        <select  className="form-control" value={Role} onChange={e => this.setState({Role: e.currentTarget.value})}>
-                            <option key="Admin" value="Admin">Admin</option>
-                            <option key="Employee" value="Employee">Employee</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        {button}
-                        <button type="button" style={{float:"right"}} className="btn btn-link" onClick={(e) => this.onBackClick()}>Back to List</button>
-                    </div>
+                    <h2>{title}</h2>
+                    {/* <form name="form"> */}
+                        <div className='form-group'>
+                            <label >ID </label>
+                            <input type="text" className="form-control" value={AccountId}
+                                onChange={e => this.setState({AccountId: e.currentTarget.value}) }/>
+                        </div>
+                        <div className='form-group'>
+                            <label>Password</label>
+                            <input type="password" className="form-control" value={Password}
+                            onChange={e => this.setState({Password: e.currentTarget.value}) }/>
+                        </div>
+                        <div className='form-group'>
+                            <label>Name</label>
+                            <input type="text" className="form-control" value={Name}
+                            onChange={e => this.setState({Name: e.currentTarget.value}) }/>
+                        </div>
+                        <div className='form-group'>
+                            <label>Role</label>
+                            <select  className="form-control" value={Role} onChange={e => this.setState({Role: e.currentTarget.value})}>
+                                <option key="Admin" value="Admin">Admin</option>
+                                <option key="Employee" value="Employee">Employee</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            {button}
+                            <button type="button" style={{float:"right"}} className="btn btn-link" onClick={(e) => this.onBackClick()}>Back to List</button>
+                        </div>
 
-                {/* </form> */}
-            </div>
-               {/* <button type="button" className="btn btn-primary" onClick={(e) => this.onAddClick()}>Add new employee</button>
-               <table className="table table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Account ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                     {this.renderTable()}
-                    </tbody>
-                </table> */}
+                    {/* </form> */}
+                </div>
             </div>
         );
 

@@ -14,12 +14,12 @@ interface Props {
 export default class ReviewsComponent extends React.Component<Props, {}> {
     componentWillMount() {
 
-        var {getReviewsData} = this.props;
+        const {getReviewsData} = this.props;
         getReviewsData();
     }
 
     updateReview(mode: EditType, id?: number){
-        var {setReviewEditMode} = this.props;
+        const {setReviewEditMode} = this.props;
 
         setReviewEditMode(mode);
         if(mode === EditType.New){
@@ -62,6 +62,7 @@ export default class ReviewsComponent extends React.Component<Props, {}> {
                         <th scope="col">Name</th>
                         <th scope="col">Rank</th>
                         <th scope="col">Description</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
 
